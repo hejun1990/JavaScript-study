@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arr = [1, 2, 3, 4, 5];
+    console.log('原始数组');
+    console.log(arr);
+    // 1、push()
+    // 作用：将数据添加到数组末尾
+    // 返回值：添加数据后数组最新的长度
+    console.log('执行push()');
+    var res = arr.push('追加');
+    console.log(arr);
+    console.log(res);
+
+    // 2、pop()
+    // 作用：删除数组的最后一个数据
+    // 返回值：被删除的数据
+    console.log('执行pop()');
+    res = arr.pop();
+    console.log(arr);
+    console.log(res);
+
+    // 3、unshift()
+    // 作用：将数据添加到数组最前
+    // 返回值：添加数据后数组最新的长度
+    console.log('执行unshift()');
+    res = arr.unshift('最佳');
+    console.log(arr);
+    console.log(res);
+
+    // 4、shift()
+    // 作用：删除数组的第一个数据
+    // 返回值：被删除的数据
+    console.log('执行shift()');
+    res = arr.shift();
+    console.log(arr);
+    console.log(res);
+
+    // 5、reverse()
+    // 作用：反转数组
+    // 返回值：反转后的数组
+    console.log('执行reverse()');
+    res = arr.reverse();
+    console.log(arr);
+    console.log(res);
+
+    // 6、splice()
+    // 语法：数组.splice(开始索引, 多少个, 要插入的数据)
+    //       开始索引：默认0
+    //       多少个：默认0
+    //       要插入的数据：默认没有
+    // 作用：删除数组中若干数据，并选择是否插入新的数据
+    // 返回值：以新数组的形式返回被删除的那些数据
+    arr = [1, 2, 3, 4, 5];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行splice()');
+    // 从索引1开始，后面数据全部删除
+    res = arr.splice(1);
+    console.log(arr);
+    console.log(res);
+
+    arr = [1, 2, 3, 4, 5];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行splice()');
+    // 从索引1开始，删除1个数据
+    res = arr.splice(1, 1);
+    console.log(arr);
+    console.log(res);
+
+    arr = [1, 2, 3, 4, 5];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行splice()');
+    // 从索引1开始，删除2个数据，并将添加的数据插入到索引1的位置
+    res = arr.splice(1, 2, '添加的', '增加的', '追加的');
+    console.log(arr);
+    console.log(res);
+
+    // 7、sort()
+    // 语法：数组.sort()
+    //      数组.sort(function(a, b){ return a - b })
+    //      数组.sort(function(a, b){ return b - a })
+    // 作用：将数组进行排序
+    // 返回值：排序好的新数组
+    arr = [11, 1, 22, 13, 45, 32, 2];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行sort()');
+    res = arr.sort();
+    console.log(arr);
+    console.log(res);
+    arr = [11, 1, 22, 13, 45, 32, 2];
+    res = arr.sort(function (a, b) { return a - b });
+    console.log(arr);
+    console.log(res);
+    arr = [11, 1, 22, 13, 45, 32, 2];
+    res = arr.sort(function (a, b) { return b - a });
+    console.log(arr);
+    console.log(res);
+
+    // 8、join()
+    // 作用：将数组用连接符连接成一个字符串
+    // 返回值：连接好的字符串
+    arr = [1, 2, 3, 4, 5];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行join()');
+    res = arr.join('-');
+    console.log(arr);
+    console.log(res);
+
+    // 9、concat()
+    // 作用：将其他数组和原始数组拼接在一起
+    // 返回值：拼接好的新数组
+    console.log('执行concat()');
+    res = arr.concat([100, 200, 300]);
+    console.log(arr);
+    console.log(res);
+
+    // 10、slice()
+    // 语法：数组.slice(开始索引, 结束索引)
+    //       开始索引: 默认是 0
+    //       结束索引: 默认是 数组长度
+    // 作用：截取数组中的某些数据
+    // 返回值：以新数组的形式返回截取出来的数据
+    arr = [1, 2, 3, 4, 5];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行slice()');
+    // 截取所有
+    res = arr.slice();
+    console.log(arr);
+    console.log(res);
+    // 从索引1开始截取所有
+    res = arr.slice(1);
+    console.log(arr);
+    console.log(res);
+    // 从索引1开始截取到索引3，但是“包前不包尾”
+    res = arr.slice(1, 3);
+    console.log(arr);
+    console.log(res);
+
+    // 11、indexOf()
+    // 作用：查找数据在数组中的位置
+    // 返回值：有该数据，返回第一次出现的索引位置；没有该数据，返回-1
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行indexOf()');
+    res = arr.indexOf(3);
+    console.log(res);
+    res = arr.indexOf(30);
+    console.log(res);
+
+    // 12、forEach()
+    // 作用：遍历数组
+    // 返回值：无
+    arr = [100, 200, 300, 400];
+    console.log('原始数组');
+    console.log(arr);
+    console.log('执行forEach()');
+    arr.forEach(function (item, index, arr) {
+        // 数组的每一项
+        console.log(item);
+        // 当前索引
+        console.log(index);
+        // 原始数组
+        console.log(arr);
+        // 分割线
+        console.log('-----------------------------');
+    });
+</script>
+
+</html>

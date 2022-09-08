@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // boolean值相加
+    var a = true;
+    var b = false;
+    var c = a + b + true;
+    console.log(c);
+    console.log(typeof c);
+
+    // 交换数值
+    a = 10;
+    b = 55;
+    console.log('交换前: a = ' + a + ', b = ' + b);
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+    console.log('交换后: a = ' + a + ', b = ' + b);
+</script>
+
+</html>
