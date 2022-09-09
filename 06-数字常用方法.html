@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1、random()
+    // 作用：获取0~1之间的随机小数，包含0，但是不包含1
+    // 返回值：0~1之间的随机小数
+    var res = Math.random();
+    console.log(res);
+
+    // 2、round()
+    // 作用：对数字进行 四舍五入 取整
+    // 返回值：四舍五入后的整数
+    res = Math.round(10.5);
+    console.log(res);
+
+    // 3、ceil()
+    // 作用：对数字 向上 取整
+    // 返回值：向上取整后的整数
+    // 4、floor()
+    // 作用：对数字 向下 取整
+    // 返回值：向下取整后的整数
+    res = Math.ceil(10.4);
+    console.log(res);
+
+    res = Math.floor(10.6);
+    console.log(res);
+
+    // 5、pow()
+    // 作用：对数字进行 取幂 运算
+    // 返回值：取幂后的结果
+    res = Math.pow(2, 5);
+    console.log(res);
+
+    // 6、sqrt()
+    // 作用：对数字进行 二次方根 运算
+    // 返回值：二次方根后的结果
+    res = Math.sqrt(5);
+    console.log(res);
+
+    // 7、abs()
+    // 作用：对数字进行 绝对值 运算
+    // 返回值：绝对值后的结果
+    res = Math.abs(-10);
+    console.log(res);
+
+    // 8、max()
+    // 作用：获取若干数字的最大值
+    // 返回值：若干数字中的最大值
+    res = Math.max(3, 6, 18, -5, 25, 16, 7, 0, 10);
+    console.log(res);
+
+    // 9、mix()
+    // 作用：获取若干数字的最小值
+    // 返回值：若干数字中的最小值
+    res = Math.min(3, 6, 18, -5, 25, 16, 7, 0, 10);
+    console.log(res);
+
+    // 10、PI
+    // 作用：得到一个近似π的值
+    res = Math.PI;
+    console.log(res);
+
+    // 随机获取指定范围内的整数
+    function randomNumFrom(min, max) {
+        if (min >= max) return;
+        var res = Math.floor(Math.random() * (max - min + 1));
+        res += min;
+        return res;
+    }
+    console.log('打印随机数');
+    for (var i = 0; i < 10; i++) {
+        console.log(randomNumFrom(15, 26));
+    }
+</script>
+
+</html>

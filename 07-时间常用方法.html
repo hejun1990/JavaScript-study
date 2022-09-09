@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var time = new Date();
+        console.log(time);
+
+        // 创建指定时间，第二个参数是月，0表示1月，11表示12月
+        time = new Date(2002, 1, 23, 11, 22, 18);
+        console.log(time);
+
+        // 获取时间对象中的年份
+        time = new Date();
+        var year = time.getFullYear();
+        console.log(year);
+        // 获取时间对象中的月份。0表示1月，11表示12月
+        var month = time.getMonth();
+        console.log(month);
+        // 获取时间对象中的日期
+        var date = time.getDate();
+        console.log(date);
+        // 获取时间对象中的小时
+        var hours = time.getHours();
+        console.log(hours);
+        // 获取时间对象中的分钟
+        var minutes = time.getMinutes();
+        console.log(minutes);
+        // 获取时间对象中的秒钟
+        var seconds = time.getSeconds();
+        console.log(seconds);
+        // 获取时间对象中的星期
+        var week = time.getDay();
+        console.log(week);
+        // 获取时间对象中的时间戳
+        var ms = time.getTime();
+        console.log(ms);
+
+        // 设置时间。不能设置星期，因为设置年月日后会自动设置好星期信息
+        time = new Date();
+        time.setFullYear(2012);
+        time.setMonth(11);
+        time.setDate(30);
+        time.setHours(10);
+        time.setMinutes(11);
+        time.setSeconds(12);
+        console.log(time);
+
+        // 获取两个时间节点的时间差
+        function getDiff(time1, time2) {
+            var ms1 = time1.getTime();
+            var ms2 = time2.getTime();
+            // 两个时间戳相差的秒数
+            var sub = Math.ceil((ms2 - ms1) / 1000);
+            // 换算
+            var day = Math.floor(sub / (60 * 60 * 24));
+            var hours = Math.floor(sub % (60 * 60 * 24) / (60 * 60));
+            var minutes = Math.floor(sub % (60 * 60) / 60);
+            var seconds = sub % 60;
+            return { day: day, hours: hours, minutes: minutes, seconds: seconds };
+        }
+
+        console.log(getDiff(new Date(2022, 8, 6, 15, 8, 21), new Date()));
+    </script>
+</body>
+
+</html>

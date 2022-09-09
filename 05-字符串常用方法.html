@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1、charAt()
+    // 作用：获取对应索引位置的字符
+    // 返回值：对应索引位置的字符
+    var str = '你好，前端大灰狼';
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行charAt()');
+    var res = str.charAt(3);
+    console.log(res);
+
+    // 2、toLowerCase()
+    // 作用：将字符串内的字母全部转换成小写
+    // 返回值：转换好的字符串
+    str = 'Hello, litTle GrAy Wolf';
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行toLowerCase()');
+    res = str.toLowerCase();
+    console.log(str);
+    console.log(res);
+
+    // 3、toUpperCase()
+    // 作用：将字符串内的字母全部转换成小写
+    // 返回值：转换好的字符串
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行toUpperCase()');
+    res = str.toUpperCase();
+    console.log(str);
+    console.log(res);
+
+    // 4、replace()
+    // 作用：将字符串内第一个满足换下内容的片段替换成换上内容
+    // 返回值：替换好的字符串
+    str = '你好，前端大灰狼，前端大灰狼';
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行replace()');
+    res = str.replace('前端', '帅气');
+    console.log(str);
+    console.log(res);
+
+    // 5、trim()
+    // 作用：去除首尾空格
+    // 返回值：替换好的字符串
+    str = '      你好，世界     ';
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行trim()');
+    res = str.trim();
+    console.log(str);
+    console.log(res);
+
+    // 6、split()
+    // 作用：按照分隔符将字符串切割成一个数组
+    // 返回值：切割后的数组
+    str = '2070-3-22';
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行split');
+    res = str.split('-');
+    console.log(res);
+
+    // 7、substr()
+    // 语法：字符串.substr(开始索引, 多少个)
+    // 8、substring()
+    // 语法：字符串.substring(开始索引, 结束索引)
+    // 9、slice()
+    // 语法：字符串.slice(开始索引, 结束索引)
+    // 作用：截取字符串
+    // 返回值：截取出来的字符串
+    str = '你好，前端大灰狼';
+    console.log('原始字符串');
+    console.log(str);
+    console.log('执行substr()');
+    res = str.substr(1, 6);
+    console.log(res);
+    console.log('执行substring()');
+    res = str.substring(1, 6);
+    console.log(res);
+    console.log('执行slice()');
+    res = str.slice(1, 6);
+    console.log(res);
+</script>
+
+</html>
