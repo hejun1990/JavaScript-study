@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类语法</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                // 按照 ES5 的构造函数体书写
+                this.name = name;
+                this.age = age;
+            }
+
+            // 直接书写原型上的方法
+            sayHi() { console.log('你好，世界') }
+
+            // 静态属性
+            static a = 100;
+
+            // 静态方法
+            static go() { console.log('running') }
+        }
+
+        let p = new Person('张三', 20);
+        console.log(p.name);
+        console.log(p.age);
+        p.sayHi();
+        console.log(Person.a);
+        Person.go();
+    </script>
+</body>
+
+</html>

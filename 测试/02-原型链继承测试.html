@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链继承测试</title>
+</head>
+
+<body>
+    <script>
+        function Person() {
+
+        }
+        Person.prototype.a = '我是Person.prototype中的A';
+
+        function Worker() {
+
+        }
+        Worker.prototype.b = '我是Worker.prototype中的B';
+        Worker.prototype.__proto__ = Person.prototype;
+
+        var w = new Worker();
+        console.log(w);
+        console.log(w.b);
+        console.log(w.a);
+        console.log(Worker);
+        console.log(Worker.prototype);
+        console.log(Worker.prototype.__proto__);
+    </script>
+</body>
+
+</html>

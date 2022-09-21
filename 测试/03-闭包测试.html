@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包测试</title>
+</head>
+
+<body>
+    <p id="help">Helpful notes will appear here</p>
+    <p>E-mail: <input type="text" id="email" name="email"></p>
+    <p>Name: <input type="text" id="name" name="name"></p>
+    <p>Age: <input type="text" id="age" name="age"></p>
+
+    <script>
+        let name1 = 'Jack';
+        function init() {
+            let name2 = 'Rose';
+            function display() {
+                console.log(name1);
+                console.log(name2);
+            }
+            display();
+        }
+        init();
+        console.log('-----------------------');
+
+        // 闭包
+        // 1
+        function makeFunc() {
+            let name = 'Tom';
+            function display() {
+                console.log(name);
+            }
+            return display;
+        }
+        let myFunc = makeFunc();
+        myFunc();
+        console.log('-----------------------');
+
+        // 2
+        function makeAdder(x) {
+            return function (y) {
+                return x + y;
+            }
+        }
+
+        let add5 = makeAdder(5);
+        let add10 = makeAdder(10);
+        console.log(add5(2));
+        console.log(add10(3));
+        console.log('-----------------------');
+
+        // 3
+        let Counter = (function () {
+            let privateCount = 0;
+            function changBy(val) {
+                privateCount += val;
+            }
+            return {
+                value: function () {
+                    return privateCount;
+                },
+                increment: function () {
+                    changBy(1);
+                },
+                decrement: function () {
+                    changBy(-1);
+                }
+            }
+        })();
+        console.log(Counter.value());
+        Counter.increment();
+        Counter.increment();
+        console.log(Counter.value());
+        Counter.decrement();
+        console.log(Counter.value());
+
+        // 4. for循环中使用闭包
+        function showHelp(help) {
+            document.getElementById('help').innerHTML = help;
+        }
+
+        function makeHelpCallback(help) {
+            return function () {
+                showHelp(help);
+            };
+        }
+
+        function setupHelp() {
+            var helpText = [
+                { 'id': 'email', 'help': 'Your e-mail address' },
+                { 'id': 'name', 'help': 'Your full name' },
+                { 'id': 'age', 'help': 'Your age (you must be over 16)' }
+            ];
+
+            for (var i = 0; i < helpText.length; i++) {
+                // 如果此处声明item用const而不是var，就不必使用闭包函数makeHelpCallback
+                var item = helpText[i];
+                document.getElementById(item.id).onfocus = makeHelpCallback(item.help);
+            }
+        }
+        setupHelp();
+    </script>
+</body>
+
+</html>
