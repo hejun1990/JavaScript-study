@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录案例</title>
+
+    <style>
+        form {
+            width: 400px;
+            height: 200px;
+            border: 2px solid pink;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 28px;
+        }
+
+        form>span {
+            font-size: 20px;
+            color: red;
+            display: none;
+        }
+
+        form>label>input {
+            height: 28px;
+            font-size: 20px;
+        }
+
+        form>button {
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <span class="error">用户名或密码错误！！</span>
+        <label for="username">
+            用户名 : <input type="text" id="username">
+        </label>
+        <label for="password">
+            密&emsp;码 : <input type="password" id="password">
+        </label>
+        <button>登录</button>
+    </form>
+
+    <script>
+        var logForm = document.querySelector('form');
+        var nameInp = document.querySelector('#username');
+        var pwdInp = document.querySelector('#password');
+        var errBox = document.querySelector('.error');
+
+        // 给form绑定表单提交事件
+        logForm.onsubmit = function (e) {
+            e.preventDefault();
+
+            var name = nameInp.value;
+            var pwd = pwdInp.value;
+            if (!name || !pwd) return alert('请完整填写表单');
+
+            var xhr = new XMLHttpRequest();
+            // 真实请求，访问服务器后端
+            // xhr.open('POST', 'http://localhost:8888/users/login', true);
+
+            // 模拟请求，因为访问静态页面，只能用GET请求
+            xhr.open('GET', 'http://localhost:5500/测试/06-ajax测试响应登录失败.json', true);
+            // xhr.open('GET', 'http://localhost:5500/测试/05-ajax测试响应登录成功.json', true);
+            xhr.onload = function () {
+                var res = JSON.parse(xhr.responseText);
+                if (res.code === 0) {
+                    errBox.style.display = 'block';
+                } else {
+                    window.location.href = './测试/07-模拟首页.html';
+                }
+            }
+
+            // 设置请求头
+            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+            // 设置请求体内参数
+            xhr.send('username=' + name + '&password=' + pwd);
+        }
+    </script>
+</body>
+
+</html>

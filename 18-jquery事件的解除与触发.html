@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <div>我是一个DIV标签</div>
+
+
+    <script>
+        // 准备事件处理函数
+        function handlerA() { console.log('我是 handlerA 事件处理函数') }
+        function handlerB() { console.log('我是 handlerB 事件处理函数') }
+        function handlerC() { console.log('我是 handlerC 事件处理函数') }
+
+        // 给 div 元素绑定事件
+        $('div').click(handlerA).click(handlerB).click(handlerC);
+
+        // 1. off()事件解绑
+        // 1-1. 解绑全部事件处理函数
+        // $('div').off('click');
+        // 1-2. 解绑指定的事件处理函数
+        // $('div').off('click', handlerB);
+
+        // 2. trigger()事件触发
+        // 使用代码的方式来触发事件
+        setInterval(function () {
+            // 每1000ms触发一次div的click事件
+            $('div').trigger('click')
+        }, 1000)
+    </script>
+</body>
+
+</html>

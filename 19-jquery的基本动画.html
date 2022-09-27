@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery/jquery-3.6.1.min.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        div.box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+
+        .base,
+        .slide,
+        .fade {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .base>ul,
+        .slide>ul,
+        .fade>ul {
+            width: 400px;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .base>ul button,
+        .slide>ul button,
+        .fade>ul button {
+            width: 80px;
+            height: 40px;
+        }
+
+        .base>div,
+        .slide>div,
+        .fade>div {
+            width: 400px;
+            height: 400px;
+        }
+
+        .base>div>div,
+        .slide>div>div,
+        .fade>div>div {
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 基本动画 -->
+        <div class="base">
+            <ul>
+                <li><button>show</button></li>
+                <li><button>hide</button></li>
+                <li><button>toggle</button></li>
+            </ul>
+            <div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- 折叠动画 -->
+        <div class="slide">
+            <ul>
+                <li><button>slideDown</button></li>
+                <li><button>slideUp</button></li>
+                <li><button>slideToggle</button></li>
+            </ul>
+            <div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- 渐隐渐现动画 -->
+        <div class="fade">
+            <ul>
+                <li><button>fadeIn</button></li>
+                <li><button>fadeOut</button></li>
+                <li><button>fadeToggle</button></li>
+                <li><button>fadeTo</button></li>
+            </ul>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*
+            基本动画
+            1. show()
+            2. hide()
+            3. toggle()
+            这三个函数有共同参数
+            => 第一个表示运动时间
+            => 第二个表示运动曲线
+            => 第三个表示运动结束的回调函数
+        */
+        $('.base>ul>li:nth-child(1)>button').click(function () {
+            $('.base>div>div').show(1000, 'linear', function () { console.log('show 结束了') })
+        })
+        $('.base>ul>li:nth-child(2)>button').click(function () {
+            $('.base>div>div').hide(1000, 'linear', function () { console.log('hide 结束了') })
+        })
+        $('.base>ul>li:nth-child(3)>button').click(function () {
+            $('.base>div>div').toggle(1000, 'linear', function () { console.log('toggle 结束了') })
+        })
+
+        /*
+            折叠动画
+            1. slideDown()
+            2. slideUp()
+            3. slideToggle()
+        */
+        $('.slide>ul>li:nth-child(1)>button').click(function () {
+            $('.slide>div>div').slideDown(1000, 'linear', function () { console.log('slideDown 结束了') })
+        })
+        $('.slide>ul>li:nth-child(2)>button').click(function () {
+            $('.slide>div>div').slideUp(1000, 'linear', function () { console.log('slideUp 结束了') })
+        })
+        $('.slide>ul>li:nth-child(3)>button').click(function () {
+            $('.slide>div>div').slideToggle(1000, 'linear', function () { console.log('slideToggle 结束了') })
+        })
+
+
+        /*
+            渐隐渐现动画
+            1. fadeIn()
+            2. fadeOut()
+            3. fadeToggle()
+            4. fadeTo(运动时间，指定的透明度，运动曲线，运动结束的回调函数)
+        */
+        $('.fade>ul>li:nth-child(1)>button').click(function () {
+            $('.fade>div>div').fadeIn(1000, 'linear', function () { console.log('fadeIn 结束了') })
+        })
+        $('.fade>ul>li:nth-child(2)>button').click(function () {
+            $('.fade>div>div').fadeOut(1000, 'linear', function () { console.log('fadeOut 结束了') })
+        })
+        $('.fade>ul>li:nth-child(3)>button').click(function () {
+            $('.fade>div>div').fadeToggle(1000, 'linear', function () { console.log('fadeToggle 结束了') })
+        })
+        $('.fade>ul>li:nth-child(4)>button').click(function () {
+            $('.fade>div>div').fadeTo(1000, .68, 'linear', function () { console.log('fadeTo 结束了') })
+        })
+    </script>
+</body>
+
+</html>

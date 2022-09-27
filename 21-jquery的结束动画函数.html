@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery/jquery-3.6.1.min.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开始 动画</button>
+    <button>stop()</button>
+    <button>finish()</button>
+    <div></div>
+
+    <script>
+        $('button:eq(0)').click(function () {
+            // $('div').toggle(2000)
+            // $('div').stop().toggle(2000)
+            $('div').finish().toggle(2000)
+        })
+
+        $('button:eq(1)').click(function () {
+            $('div').stop()
+        })
+
+        $('button:eq(2)').click(function () {
+            $('div').finish()
+        })
+    </script>
+</body>
+
+</html>
