@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义中间变量
+        let myPageData;
+        // 将pageData监控起来
+        Object.defineProperty(window, 'pageData', {
+            // 一旦给pageData赋值就会触发
+            set(newObj) {
+                // newObj就是新赋的值，把它存给中间变量myPageData
+                myPageData = newObj;
+            },
+            // 一旦获取pageData就会触发
+            get() {
+                // 先判断赋值是否成功，赋值成功了再调用myPageData.vipInfo.isVip
+                if ('vipInfo' in myPageData) {
+                    myPageData.vipInfo.isVip = true;
+                }
+                // 将原始页面上的pageData对象经过包装后，以myPageData对象返回
+                // 此时只要页面上获取pageData对象就会触发get方法，就会获得包装后的对象myPageData
+                return myPageData;
+            }
+        })
+    </script>
+</body>
+
+</html>

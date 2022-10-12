@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模仿KTV字幕</title>
+
+    <style>
+        .box {
+            width: 1600px;
+            height: 300px;
+            margin: 50px auto;
+            background-color: yellowgreen;
+            position: relative;
+        }
+
+        .box>div:nth-child(1) {
+            width: 1550px;
+            height: 100px;
+            font-size: 50px;
+            color: blue;
+            font-weight: 700;
+            white-space: nowrap;
+            line-height: 100px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box>div:nth-child(2) {
+            width: 0px;
+            height: 100px;
+            font-size: 50px;
+            color: red;
+            font-weight: 700;
+            white-space: nowrap;
+            line-height: 100px;
+
+            position: absolute;
+
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="blue">你好，世界。你好，世界。你好，世界。你好，世界。你好，世界。</div>
+        <div class="red">你好，世界。你好，世界。你好，世界。你好，世界。你好，世界。</div>
+    </div>
+
+    <script src="../js/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        const box = $('.box');
+        const div1 = $('.box>div:nth-child(1)');
+        const div2 = $('.box>div:nth-child(2)');
+
+        const p1 = div1.position();
+        div2.css({ top: p1.top, left: p1.left });
+
+        box.click(e => {
+            const t = $(e.target);
+            if (t.prop('class') == 'blue' || t.prop('class') == 'red') {
+                div2.finish();
+                div2.css({ width: 0 });
+                div2.animate({ width: div1.width() }, 15000);
+            }
+        })
+    </script>
+</body>
+
+</html>
